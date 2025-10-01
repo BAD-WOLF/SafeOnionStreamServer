@@ -1,0 +1,16 @@
+﻿name: Discussion Comment Workflow
+on:
+  discussion:
+    types:
+      [created]
+  discussion_comment:
+    types:
+      [created]
+
+jobs:
+  handle_discussion:
+    runs-on: ubuntu-latest
+    steps:
+      - name:  Detect event type
+        run: |
+          echo "Discussion: ${{ github }}";
