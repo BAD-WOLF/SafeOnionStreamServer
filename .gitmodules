@@ -1,3 +1,6 @@
 [submodule "SafeOnionStreamServer.wiki"]
 	path = SafeOnionStreamServer.wiki
 	url = https://github.com/BAD-WOLF/SafeOnionStreamServer.wiki.git
+[submodule "github-agent"]
+	path = github-agent
+	url = git@github.com:BAD-WOLF/github-agent.git
