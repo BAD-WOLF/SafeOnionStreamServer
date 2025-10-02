@@ -1,0 +1,43 @@
+﻿name: Discussion Comment Workflow
+on:
+  discussion:
+    types: [created]
+  issues:
+    types: [opened]
+  discussion_comment:
+    types: [created]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  handle_discussion:
+    runs-on: ubuntu-latest
+    environment: RAG
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm install --prefix github-agent
+
+      - name: Run worker
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          WEAVIATE_API_KEY: ${{ secrets.WEAVIATE_API_KEY }}
+          WEAVIATE_HOST: ${{ secrets.WEAVIATE_HOST }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODE: "prod"
+        run: |
+          echo '${{ toJson(github.event) }}' > payload.json
+          cat payload.json
