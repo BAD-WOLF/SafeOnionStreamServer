@@ -28,15 +28,17 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install deps
-        run: npm install --prefix github-agent
+      - name: Install deps and build
+        run: |
+          npm install --prefix github-agent
+          yarn --cwd github-agent build
 
       - name: Run worker
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           WEAVIATE_API_KEY: ${{ secrets.WEAVIATE_API_KEY }}
           WEAVIATE_HOST: ${{ secrets.WEAVIATE_HOST }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BAD_WOLF_TOKEN }}
           MODE: "prod"
         run: |
           echo '${{ toJson(github.event) }}' > payload.json
