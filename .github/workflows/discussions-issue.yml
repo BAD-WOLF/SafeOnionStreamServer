@@ -40,4 +40,4 @@ jobs:
           MODE: "prod"
         run: |
           echo '${{ toJson(github.event) }}' > payload.json
-          cat payload.json
+          node github-agent/dist/cli.js payload.json --model 1
