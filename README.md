@@ -23,7 +23,10 @@ SOSS is the provider: it delivers content (video and metadata) and handles the b
 - Minimal documentation to get started (installation, local run and deploy).
 
 > [!WARNING]
-> Note: this repository covers the **provider** (backend). Integration with players, apps and clients is the responsibility of the frontend or another server.
+> this repository covers the **provider** (backend). Integration with players, apps and clients is the responsibility of the frontend or another server.
 
 ## Contribution
-Contributions are welcome! Open issues **FOR ISSUES** or bugs, send PRs for improvements and for new ideas or discussions we have topics in the discussions tab for that. Keep changes small and documented.
+Contributions are welcome! Keep changes small and documented. Open issues **FOR ISSUES** or bugs, send PRs for improvements and for new ideas or discussions we have topics in the discussions tab for that, for all of them, there is an agent that will automatically respond to you regarding the scope of the project in question.
+
+> [!WARNING]
+> Don’t forget to tag him if you want to talk to him: @BAD-WOLF
